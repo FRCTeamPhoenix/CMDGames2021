@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 #include "ExampleGame.h"
+#include "Scrabble.h"
 
 #include <iostream>
 #include <string>
@@ -40,4 +41,7 @@ void GameManager::AddGames(){
     //insert your game below like the example line
     ExampleGame* eg = new ExampleGame();
     m_games.insert(make_pair("example", eg));
+
+    Scrabble* scrabble = new Scrabble();
+    m_games.insert(make_pair("scrabble", scrabble));
 }
