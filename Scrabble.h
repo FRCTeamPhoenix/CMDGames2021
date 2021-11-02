@@ -8,9 +8,11 @@
 class Scrabble : public Game {
     private:
         std::vector<std::string> m_words;
+        char RandChar();
+        //std::string m_aplha;
         //std::string words;
     public:
-        Scrabble(){}
+        Scrabble();
         virtual void Run() override;
     protected:
         //
