@@ -1,11 +1,8 @@
 #include "GameManager.h"
 
 #include "ExampleGame.h"
-<<<<<<< HEAD
 #include "RockPaperScissor.h"
-=======
 #include "GemGame.h"
->>>>>>> 982d46fb0779fec7ad934f4eccffb138cc9fabd9
 
 #include <iostream>
 #include <string>
