@@ -11,6 +11,7 @@
 				"Main.cpp",
 				"ExampleGame.cpp",
 				"GameManager.cpp",
+				"TicTacToe,cpp",
 				"-o",
 				"CMDGames.exe"
 			],

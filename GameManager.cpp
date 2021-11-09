@@ -2,6 +2,8 @@
 
 #include "ExampleGame.h"
 
+#include "TicTacToe.h"
+
 #include <iostream>
 #include <string>
 
@@ -39,5 +41,8 @@ void GameManager::Run(){
 void GameManager::AddGames(){
     //insert your game below like the example line
     ExampleGame* eg = new ExampleGame();
+    m_games.insert(make_pair("example", eg));
+
+    TicTacToe* eg = new TicTacToe();
     m_games.insert(make_pair("example", eg));
 }
