@@ -2,6 +2,7 @@
 
 #include "ExampleGame.h"
 #include "GemGame.h"
+#include "Life.h"
 
 #include <iostream>
 #include <string>
@@ -43,4 +44,6 @@ void GameManager::AddGames(){
     m_games.insert(make_pair("example", eg));
     GemGame* gg = new GemGame();
     m_games.insert(make_pair("gem", gg));
+    Life* l = new Life();
+    m_games.insert(make_pair("life", l));
 }

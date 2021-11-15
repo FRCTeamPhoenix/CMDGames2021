@@ -12,6 +12,7 @@
 				"ExampleGame.cpp",
 				"GameManager.cpp",
 				"GemGame.cpp",
+				"Life.cpp",
 				"-o",
 				"CMDGames.exe"
 			],
