@@ -12,6 +12,7 @@
 				"ExampleGame.cpp",
 				"Minesweeper.cpp",
 				"GameManager.cpp",
+				"GemGame.cpp",
 				"-o",
 				"CMDGames.exe"
 			],
