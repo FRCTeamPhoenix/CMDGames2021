@@ -27,6 +27,17 @@ char Scrabble::RandChar() {
     return (char)(rand() % (122 - 97 + 1) + 97);
 }
 
+bool Scrabble::IsInt(std::string str) {
+    for (int i = 0; i < str.length();i++) {
+        int asciiValue = (int)str[i] - 48;
+        if ((asciiValue >= 0) && (asciiValue <= 9)) {
+
+        }
+        else {return false;}
+    }
+    return true;
+}
+
 void Scrabble::Run() {
     srand (time(NULL));
     //std::cout << m_words[rand() % m_words.size()] << std::endl;
@@ -36,16 +47,16 @@ void Scrabble::Run() {
     //}
 
     while (true) {
-        std::string given_letters = "";
+        std::string givenLetters = "";
         for (int i = 0; i < 7; i++) {
-            given_letters += RandChar();
+            givenLetters += RandChar();
         }
-        //given_letters = "qvmyair";
+        //givenLetters = "qvmyair";
 
         /*int chosen = 0;
         while (true) {
             try {
-                std::cout << "Given letters: " << given_letters;
+                std::cout << "Given letters: " << givenLetters;
                 std::cin >> chosen;
                 break;
             }
@@ -60,58 +71,67 @@ void Scrabble::Run() {
         }*/
 
         while (true) {
-            std::cout << "Given letters: " << given_letters << std::endl;
+            std::cout << "Given letters: " << givenLetters << std::endl;
             std::cout << "               1234567\n";
             std::cout << "Word: ";
 
-            std::string word_guess;
-            std::cin >> word_guess;
-            bool not_word = true;
+            std::string wordGuess;
+            std::cin >> wordGuess;
+            bool notWord = true;
 
-            try {
-                int i_reroll = std::stoi(word_guess);
-                given_letters[i_reroll] = RandChar();
+            /*try {
+                int iReroll = std::stoi(wordGuess);
+                givenLetters[iReroll] = RandChar();
                 //std::cout << "int\n";
             }
             catch(int e) {
                 //std::cout << "not int\n";
-            }
+            }*/
 
-            if (std::count(m_words.begin(), m_words.end(), word_guess)) {
-                //std::cout << "Is word!\n";
-                //break;
-                std::string remaining_letters = given_letters;
-                for (int i = 0; i < word_guess.length(); i++) {
-                    not_word = true;
-                    for (int j = 0; j < remaining_letters.length(); j++) {
-                        if (word_guess[i] == remaining_letters[j]) {
-                            //std::cout << remaining_letters << std::endl;
-                            remaining_letters.erase(j, 1);
-                            //std::cout << remaining_letters << std::endl << std::endl;
-                            not_word = false;
+            if (IsInt(wordGuess)) {
+                int iReroll = std::stoi(wordGuess) - 1;
+                //std::cout << iReroll << "\n";
+                givenLetters[iReroll] = RandChar();
+                //std::cout << "ball\n";
+            }
+            else {
+                if (std::count(m_words.begin(), m_words.end(), wordGuess)) {
+                    //std::cout << "Is word!\n";
+                    //break;
+                    std::string remainingLetters = givenLetters;
+                    for (int i = 0; i < wordGuess.length(); i++) {
+                        notWord = true;
+                        for (int j = 0; j < remainingLetters.length(); j++) {
+                            if (wordGuess[i] == remainingLetters[j]) {
+                                //std::cout << remainingLetters << std::endl;
+                                remainingLetters.erase(j, 1);
+                                //std::cout << remainingLetters << std::endl << std::endl;
+                                notWord = false;
+                                break;
+                            }
+                        }
+                        if ((remainingLetters == "") || (false)) {
+                            notWord = false;
+                            break;
+                        }
+                        if (notWord) {
                             break;
                         }
                     }
-                    if ((remaining_letters == "") || (false)) {
-                        not_word = false;
-                        break;
-                    }
-                    if (not_word) {
-                        break;
-                    }
-                }
 
-                if (not_word) {
-                    std::cout << "Invalid\n";
+                    if (notWord) {
+                        std::cout << "Invalid\n";
+                    }
+                    else {
+                        break;
+                    }
                 }
                 else {
-                    break;
+                    std::cout << "Invalid\n";
                 }
             }
-            else {
-                std::cout << "Invalid\n";
-            }
         }
+        std::cout << "You found a word.\n\n";
     }
     std::cout << "Done.\n";
 }

@@ -9,6 +9,7 @@ class Scrabble : public Game {
     private:
         std::vector<std::string> m_words;
         char RandChar();
+        bool IsInt(std::string str);
         //std::string m_aplha;
         //std::string words;
     public:
