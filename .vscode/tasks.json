@@ -12,6 +12,8 @@
 				"ExampleGame.cpp",
 				"GameManager.cpp",
 				"GemGame.cpp",
+				"Life.cpp",
+				"RockPaperScissor.cpp",
 				"-o",
 				"CMDGames.exe"
 			],
