@@ -94,7 +94,7 @@ void Life::Run(){
     srand(time(0));
     string choice;
     while(true){
-        cout << "Choose a default board type or type 0 to pick your own starting cells. Type x while running to end program.\n1 - 1x3 line, centered\n2 - random" << endl;
+        cout << "Choose a board type. Type x while running to end program.\n1 - 1x3 line, centered\n2 - random" << endl;
         getline(cin, choice);
         if(choice == "1"){
             board[height/2][width/2] = alive;
