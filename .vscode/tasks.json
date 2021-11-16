@@ -10,6 +10,7 @@
 				"-g",
 				"Main.cpp",
 				"ExampleGame.cpp",
+				"Minesweeper.cpp",
 				"GameManager.cpp",
 				"-o",
 				"CMDGames.exe"

@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 #include "ExampleGame.h"
+#include "Minesweeper.h"
 
 #include <iostream>
 #include <string>
@@ -40,4 +41,6 @@ void GameManager::AddGames(){
     //insert your game below like the example line
     ExampleGame* eg = new ExampleGame();
     m_games.insert(make_pair("example", eg));
+    Minesweeper* ms = new Minesweeper();
+    m_games.insert(make_pair("minesweeper", ms));
 }
