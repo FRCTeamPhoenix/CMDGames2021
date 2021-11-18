@@ -6,14 +6,6 @@
 
 using namespace std;
  
-#define Beginner 0
-#define Intermediate 1
-#define Advanced 2
-#define Custom 3
-#define maxside 10
-#define maxmines 99
-#define movesize 526
- 
 int side; 
 int mines;
 
@@ -27,7 +19,7 @@ bool Minesweeper::IsValid(int row, int column) {
 }
 
 // Checks if there is a mine at the specified location
-bool Minesweeper::IsMine(int row, int column, char board[][maxside]) {
+bool Minesweeper::IsMine(int row, int column, char board[][MAXSIDE]) {
     if (board[row][column] == '*') return true; // If there is a mine at the location, return true
     else return false; // If there is no mine at the location, return false
 }
@@ -39,7 +31,7 @@ void Minesweeper::DoTurn(int *x, int *y) {
 }
 
 // Displays the gameboard
-void Minesweeper::DisplayBoard (char board[][maxside]) {
+void Minesweeper::DisplayBoard (char board[][MAXSIDE]) {
     int i;
     int j;
 
@@ -62,7 +54,7 @@ void Minesweeper::DisplayBoard (char board[][maxside]) {
 }
 
 // Counts the mines adjacent to a given space
-int Minesweeper::CountMines(int row, int col, int mineboard[][2], char realBoard[][maxside]) {
+int Minesweeper::CountMines(int row, int col, int mineboard[][2], char realBoard[][MAXSIDE]) {
     int i;
     int mines = 0;
 
@@ -112,8 +104,8 @@ int Minesweeper::CountMines(int row, int col, int mineboard[][2], char realBoard
 }
 
 // Places mines randomly around the board
-void Minesweeper::PlaceMines(int mineboard[][2], char realBoard[][maxside]) {
-    bool mark[maxside * maxside];
+void Minesweeper::PlaceMines(int mineboard[][2], char realBoard[][MAXSIDE]) {
+    bool mark[MAXSIDE * MAXSIDE];
 
     memset (mark, false, sizeof(mark));
 
@@ -141,7 +133,7 @@ void Minesweeper::PlaceMines(int mineboard[][2], char realBoard[][maxside]) {
 }
 
 // Fills the board specified with dashes
-void Minesweeper::Init(char realBoard[][maxside], char board[][maxside]) {
+void Minesweeper::Init(char realBoard[][MAXSIDE], char board[][MAXSIDE]) {
     srand(time (NULL));
 
     // Cycle through all of the spaces on the board
@@ -155,7 +147,7 @@ void Minesweeper::Init(char realBoard[][maxside], char board[][maxside]) {
 }
 
 // Removes a mine at the specified location and add a mine in the first vacant spot on the board
-void Minesweeper::ReplaceMine (int row, int col, char board[][maxside]) {
+void Minesweeper::ReplaceMine (int row, int col, char board[][MAXSIDE]) {
     
     // Scan through the spaces on the board
     for (int i = 0; i < side; i++) {
@@ -173,7 +165,7 @@ void Minesweeper::ReplaceMine (int row, int col, char board[][maxside]) {
 }
 
 // Reveals large areas of empty spaces if the player doesn't select a mine, otherwise end the game with the player losing
-bool Minesweeper::PlayUtil(char gameboard[][maxside], char realboard[][maxside], int mineboard[][2], int row, int col, int *movesLeft) {
+bool Minesweeper::PlayUtil(char gameboard[][MAXSIDE], char realboard[][MAXSIDE], int mineboard[][2], int row, int col, int *movesLeft) {
     if(gameboard[row][col] != '-') return false; // If the space isn't hidden, return false
     
     int i;
@@ -255,9 +247,9 @@ bool Minesweeper::PlayUtil(char gameboard[][maxside], char realboard[][maxside],
 // Handles the overall flow of the game
 void Minesweeper::Play() {
     bool over = false;
-    char realBoard[maxside][maxside], gameBoard[maxside][maxside];
+    char realBoard[MAXSIDE][MAXSIDE], gameBoard[MAXSIDE][MAXSIDE];
     int movesLeft = side * side - mines, x, y; // Determines the number of empty spaces left that don't contain a mine
-    int mineboard[maxmines][2]; // A board that contain the locations of all the mines
+    int mineboard[MAXMINES][2]; // A board that contain the locations of all the mines
 
     Init(realBoard, gameBoard); // Create the gameboard and fill it with dashes
     PlaceMines(mineboard, realBoard); // Randomly place mines around the board
@@ -301,26 +293,26 @@ void Minesweeper::Play() {
 // Handles setting the variables for each difficulty
 void Minesweeper::ChooseDiff (int diff) {
 
-    if (diff == Beginner) {
+    if (diff == BEGINNER) {
         cout << ">>> BEGINNER BOARD SELECTED <<<" << endl;
         side = 10;
         mines = 10;
     }
  
-    if (diff == Intermediate) {
+    if (diff == INTERMEDIATE) {
         cout << ">>> INTERMEDIATE BOARD SELECTED <<<" << endl;
         side = 10;
         mines = 20;
     }
  
-    if (diff == Advanced) {
+    if (diff == ADVANCED) {
         cout << ">>> ADVANCED BOARD SELECTED <<<" << endl;
         side = 10;
         mines = 25;
     }
 
     // If the custom board was selected, ask the user for the parameters
-    if (diff == Custom) {
+    if (diff == CUSTOM) {
         cout << ">>> CUSTOM BOARD SELECTED <<<" << endl;
         cout << "What do you want the side length to be? (0-10)" << endl;
         cin >> side;
@@ -352,16 +344,16 @@ void Minesweeper::Run() {
     // Set the variables for the game based on the difficulty selected
     switch(difficulty) {
         case (0):
-            ChooseDiff(Beginner);
+            ChooseDiff(BEGINNER);
         break;
         case (1):
-            ChooseDiff(Intermediate);
+            ChooseDiff(INTERMEDIATE);
         break;
         case (2):
-            ChooseDiff(Advanced);
+            ChooseDiff(ADVANCED);
         break;
         case (3):
-            ChooseDiff(Custom);
+            ChooseDiff(CUSTOM);
         break;
     }
     
