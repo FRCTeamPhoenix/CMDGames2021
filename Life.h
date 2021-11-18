@@ -7,4 +7,8 @@ class Life : public Game{
         Life(){}
 
         virtual void Run() override;
+    private:
+        void Simulate();
+        void PrintArray(char a[80][80]);
+        int CountAdjacent(int x, int y);
 };
