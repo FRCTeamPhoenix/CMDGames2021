@@ -43,6 +43,6 @@ void GameManager::AddGames(){
     ExampleGame* eg = new ExampleGame();
     m_games.insert(make_pair("example", eg));
 
-    TicTacToe* eg = new TicTacToe();
-    m_games.insert(make_pair("example", eg));
+    TicTacToe* tt = new TicTacToe();
+    m_games.insert(make_pair("tic tac toe", tt));
 }
