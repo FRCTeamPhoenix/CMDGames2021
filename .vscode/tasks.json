@@ -11,6 +11,7 @@
 				"Main.cpp",
 				"ExampleGame.cpp",
 				"GameManager.cpp",
+				"Hangman.cpp",
 				"-o",
 				"CMDGames.exe"
 			],

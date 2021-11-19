@@ -1,5 +1,5 @@
 #include "GameManager.h"
-
+#include "Hangman.h"
 #include "ExampleGame.h"
 
 #include <iostream>
@@ -40,4 +40,8 @@ void GameManager::AddGames(){
     //insert your game below like the example line
     ExampleGame* eg = new ExampleGame();
     m_games.insert(make_pair("example", eg));
+    
+    Hangman* hm = new Hangman();
+    m_games.insert(make_pair("hangman", hm));
+
 }
