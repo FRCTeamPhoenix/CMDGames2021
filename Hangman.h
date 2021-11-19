@@ -2,9 +2,9 @@
 
 #include "Game.h"
 
-class ExampleGame : public Game{
+class Hangman : public Game{
     public:
-        ExampleGame(){}
+        Hangman(){}
             
         virtual void Run() override;
 };

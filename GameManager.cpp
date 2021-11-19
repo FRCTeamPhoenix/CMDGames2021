@@ -1,6 +1,9 @@
 #include "GameManager.h"
-
+#include "Hangman.h"
 #include "ExampleGame.h"
+#include "higherorlower.h"
+#include "Scrabble.h"
+#include "Minesweeper.h"
 #include "RockPaperScissor.h"
 #include "GemGame.h"
 #include "Life.h"
@@ -43,6 +46,16 @@ void GameManager::AddGames(){
     //insert your game below like the example line
     ExampleGame* eg = new ExampleGame();
     m_games.insert(make_pair("example", eg));
+    
+    Hangman* hm = new Hangman();
+    m_games.insert(make_pair("hangman", hm));
+
+    HigherOrLower* hl = new HigherOrLower();
+    m_games.insert(make_pair("Higher or Lower", hl));
+    Scrabble* scrabble = new Scrabble();
+    m_games.insert(make_pair("scrabble", scrabble));
+    Minesweeper* ms = new Minesweeper();
+    m_games.insert(make_pair("minesweeper", ms));
     RockPaperScissor* rps = new RockPaperScissor();
     m_games.insert(make_pair("rock paper scissor", rps));
     GemGame* gg = new GemGame();
