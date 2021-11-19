@@ -8,6 +8,8 @@
 #include "GemGame.h"
 #include "Life.h"
 
+#include "TicTacToe.h"
+
 #include <iostream>
 #include <string>
 
@@ -46,10 +48,10 @@ void GameManager::AddGames(){
     //insert your game below like the example line
     ExampleGame* eg = new ExampleGame();
     m_games.insert(make_pair("example", eg));
-    
+    TicTacToe* tt = new TicTacToe();
+    m_games.insert(make_pair("tic tac toe", tt));
     Hangman* hm = new Hangman();
     m_games.insert(make_pair("hangman", hm));
-
     HigherOrLower* hl = new HigherOrLower();
     m_games.insert(make_pair("Higher or Lower", hl));
     Scrabble* scrabble = new Scrabble();
