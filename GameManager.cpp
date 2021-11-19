@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 #include "ExampleGame.h"
+#include "Scrabble.h"
 #include "Minesweeper.h"
 #include "RockPaperScissor.h"
 #include "GemGame.h"
@@ -44,6 +45,8 @@ void GameManager::AddGames(){
     //insert your game below like the example line
     ExampleGame* eg = new ExampleGame();
     m_games.insert(make_pair("example", eg));
+    Scrabble* scrabble = new Scrabble();
+    m_games.insert(make_pair("scrabble", scrabble));
     Minesweeper* ms = new Minesweeper();
     m_games.insert(make_pair("minesweeper", ms));
     RockPaperScissor* rps = new RockPaperScissor();
