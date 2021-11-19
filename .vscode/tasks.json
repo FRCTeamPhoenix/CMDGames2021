@@ -10,10 +10,18 @@
 				"-g",
 				"Main.cpp",
 				"ExampleGame.cpp",
+				"Minesweeper.cpp",
 				"GameManager.cpp",
 				"TicTacToe,cpp",
+				"Hangman.cpp",
+				"HigherOrLower.cpp",
+				"Scrabble.cpp",
+				"GemGame.cpp",
+				"Life.cpp",
+				"RockPaperScissor.cpp",
+				"SnakeGame.cpp",
 				"-o",
-				"CMDGames.exe"
+				"${workspaceFolder}\\CMDGames.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
