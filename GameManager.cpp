@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 #include "ExampleGame.h"
+#include "higherorlower.h"
 
 #include <iostream>
 #include <string>
@@ -40,4 +41,6 @@ void GameManager::AddGames(){
     //insert your game below like the example line
     ExampleGame* eg = new ExampleGame();
     m_games.insert(make_pair("example", eg));
+    HigherOrLower* hl = new HigherOrLower();
+    m_games.insert(make_pair("Higher or Lower", hl));
 }
