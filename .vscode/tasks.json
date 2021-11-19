@@ -18,8 +18,9 @@
 				"GemGame.cpp",
 				"Life.cpp",
 				"RockPaperScissor.cpp",
+				"SnakeGame.cpp",
 				"-o",
-				"CMDGames.exe"
+				"${workspaceFolder}\\CMDGames.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
