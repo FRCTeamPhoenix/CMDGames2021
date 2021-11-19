@@ -2,8 +2,10 @@
 
 #include "ExampleGame.h"
 #include "Scrabble.h"
+#include "Minesweeper.h"
 #include "RockPaperScissor.h"
 #include "GemGame.h"
+#include "Life.h"
 
 #include <iostream>
 #include <string>
@@ -45,8 +47,12 @@ void GameManager::AddGames(){
     m_games.insert(make_pair("example", eg));
     Scrabble* scrabble = new Scrabble();
     m_games.insert(make_pair("scrabble", scrabble));
+    Minesweeper* ms = new Minesweeper();
+    m_games.insert(make_pair("minesweeper", ms));
     RockPaperScissor* rps = new RockPaperScissor();
     m_games.insert(make_pair("rock paper scissor", rps));
     GemGame* gg = new GemGame();
     m_games.insert(make_pair("gem", gg));
+    Life* l = new Life();
+    m_games.insert(make_pair("life", l));
 }
