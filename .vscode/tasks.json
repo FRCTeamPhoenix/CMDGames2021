@@ -10,8 +10,13 @@
 				"-g",
 				"Main.cpp",
 				"ExampleGame.cpp",
+				"Minesweeper.cpp",
 				"GameManager.cpp",
 				"HigherOrLower.cpp",
+				"Scrabble.cpp",
+				"GemGame.cpp",
+				"Life.cpp",
+				"RockPaperScissor.cpp",
 				"-o",
 				"CMDGames.exe"
 			],
